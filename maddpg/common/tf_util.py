@@ -236,7 +236,9 @@ def save_state(fname, saver=None):
     os.makedirs(os.path.dirname(fname), exist_ok=True)
     if saver is None:
         saver = tf.train.Saver()
-    saver.save(get_session(), fname)
+    # saver.save(get_session(), fname)
+    save_path = saver.save(get_session(), "/home/siddharth/github/maddpg/maddpg_save/model.ckpt")
+    print("Model saved in path: %s" % save_path)
     return saver
 
 # ================================================================
