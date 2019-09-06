@@ -177,16 +177,16 @@ def train(arglist):
                 for rew in agent_rewards:
                     final_ep_ag_rewards.append(np.mean(rew[-arglist.save_rate:]))
 
-            # saves final episode reward for plotting training curve later
-            if len(episode_rewards) > arglist.num_episodes:
-                rew_file_name = arglist.plots_dir + arglist.exp_name + '_rewards.pkl'
-                with open(rew_file_name, 'wb') as fp:
-                    pickle.dump(final_ep_rewards, fp)
-                agrew_file_name = arglist.plots_dir + arglist.exp_name + '_agrewards.pkl'
-                with open(agrew_file_name, 'wb') as fp:
-                    pickle.dump(final_ep_ag_rewards, fp)
-                print('...Finished total of {} episodes.'.format(len(episode_rewards)))
-                break
+            # # saves final episode reward for plotting training curve later
+            # if len(episode_rewards) > arglist.num_episodes:
+            #     rew_file_name = arglist.plots_dir + arglist.exp_name + '_rewards.pkl'
+            #     with open(rew_file_name, 'wb') as fp:
+            #         pickle.dump(final_ep_rewards, fp)
+            #     agrew_file_name = arglist.plots_dir + arglist.exp_name + '_agrewards.pkl'
+            #     with open(agrew_file_name, 'wb') as fp:
+            #         pickle.dump(final_ep_ag_rewards, fp)
+            #     print('...Finished total of {} episodes.'.format(len(episode_rewards)))
+            #     break
 
 if __name__ == '__main__':
     arglist = parse_args()
