@@ -1,2 +1,2 @@
-model_checkpoint_path: "/home/siddharth/github/maddpg/maddpg_save/"
-all_model_checkpoint_paths: "/home/siddharth/github/maddpg/maddpg_save/"
+model_checkpoint_path: "/home/siddharth/github/maddpg/maddpg/maddpg_save/"
+all_model_checkpoint_paths: "/home/siddharth/github/maddpg/maddpg/maddpg_save/"

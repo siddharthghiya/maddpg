@@ -82,42 +82,42 @@ def eval(arglist):
         print('Using good policy {} and adv policy {}'.format(arglist.good_policy, arglist.adv_policy))
 
         # Initialize
-        U.initialize()
+        # U.initialize()
 
         #loading states
         U.load_state(arglist.load_dir)
 
-        episode_rewards = [0.0]  # sum of rewards for all agents
-        agent_rewards = [[0.0] for _ in range(env.n)]  # individual agent reward
-        final_ep_rewards = []  # sum of rewards for training curve
-        final_ep_ag_rewards = []  # agent rewards for training curve
-        agent_info = [[[]]]  # placeholder for benchmarking info
-        saver = tf.train.Saver()
-        obs_n = env.reset()
-        episode_step = 0
-        train_step = 0
-        t_start = time.time()
+        # episode_rewards = [0.0]  # sum of rewards for all agents
+        # agent_rewards = [[0.0] for _ in range(env.n)]  # individual agent reward
+        # final_ep_rewards = []  # sum of rewards for training curve
+        # final_ep_ag_rewards = []  # agent rewards for training curve
+        # agent_info = [[[]]]  # placeholder for benchmarking info
+        # # saver = tf.train.Saver()
+        # obs_n = env.reset()
+        # episode_step = 0
+        # train_step = 0
+        # t_start = time.time()
 
-        while True:
-            # get action
-            action_n = [agent.action(obs) for agent, obs in zip(trainers,obs_n)]
-            # environment step
-            new_obs_n, rew_n, done_n, info_n = env.step(action_n)
-            episode_step += 1
-            done = all(done_n)
-            terminal = (episode_step >= arglist.max_episode_len)
-            env.render()
+        # while True:
+        #     # get action
+        #     action_n = [agent.action(obs) for agent, obs in zip(trainers,obs_n)]
+        #     # environment step
+        #     new_obs_n, rew_n, done_n, info_n = env.step(action_n)
+        #     episode_step += 1
+        #     done = all(done_n)
+        #     terminal = (episode_step >= arglist.max_episode_len)
+        #     env.render()
             
-            if done or terminal:
-                obs_n = env.reset()
-                episode_step = 0
-                episode_rewards.append(0)
-                for a in agent_rewards:
-                    a.append(0)
-                agent_info.append([[]])
+        #     if done or terminal:
+        #         obs_n = env.reset()
+        #         episode_step = 0
+        #         episode_rewards.append(0)
+        #         for a in agent_rewards:
+        #             a.append(0)
+        #         agent_info.append([[]])
 
-            if len(episode_rewards) > arglist.num_episodes:
-                break
+        #     if len(episode_rewards) > arglist.num_episodes:
+        #         break
 
 if __name__ == '__main__':
     arglist = parse_args()

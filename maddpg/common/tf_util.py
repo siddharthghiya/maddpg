@@ -228,6 +228,7 @@ def load_state(fname, saver=None):
     if saver is None:
         saver = tf.train.Saver()
     saver.restore(get_session(), fname)
+    raise ValueError('A very specific bad thing happened.')
     return saver
 
 
